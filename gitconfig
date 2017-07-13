@@ -1,3 +1,7 @@
+[user]
+  email = sunny@sunfox.org
+  name = Sunny Ripert
+
 [color]
   branch = auto
   diff = auto
@@ -11,7 +15,25 @@
 
 [core]
   pager = less -FRSX
-	editor = '/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -n -w
+
+  # Default editor. Use `subl -n -w` for Sublime Text.
+  editor = vim
+
+  # Autoconvert line endings from CRLF (Windows) to LF (everybody else)
+  autocrlf = input
+
+  # Global gitignore file
+  excludesfile = ~/.gitignore_global
+
+  # Helps using commands with unicode characters on OSX
+  quotepath = false
+
+  # Helps using unicode characters in filenames on file systems like HFS+ on OSX
+  precomposeunicode = true
+
+[credential]
+  # Use OSX's keychain to remember your passwords
+  helper = osxkeychain
 
 [alias]
   co = checkout
@@ -20,7 +42,7 @@
   ci = commit
   fo = fetch origin
   d = !git --no-pager diff
-  dt  = difftool
+  dt = difftool
   stat = !git --no-pager diff --stat
 
   # Clean merged branches
@@ -28,6 +50,7 @@
 
   # http://www.jukie.net/bart/blog/pimping-out-git-log
   lg = log --graph --all --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
+  l = log --all --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
 
   # Serve local repo. http://coderwall.com/p/eybtga
   # Then other can access via `git clone git://#{YOUR_IP_ADDRESS}/
@@ -38,14 +61,26 @@
   # Removes a file from the index
   unstage = reset HEAD --
 
+  # Via https://gist.github.com/robmiller/6018582
+  # Get the current branch name (not so useful in itself, but used in
+  # other aliases)
+  branch-name = "!git rev-parse --abbrev-ref HEAD"
+
+  # Commit a temporary commit
+  wip = "!git commit -m \"$(git branch-name) WIP\""
+
+  # Pull rebase
+  pr = !git pull --rebase && git fetch --tags
+
+  # Fetch all remotes, with tags and remove dead branches
+  f = fetch --all --tags --prune
+
 [help]
-  autocorrect = 1
+  # Activate Git's autocorrect after a number of seconds ("Did you mean")
+  autocorrect = 20
 
 [push]
-	default = simple
+	default = current
 
 [branch "master"]
   mergeoptions = --no-edit
-[user]
-	email = sunny@sunfox.org
-	name = Sunny Ripert
