@@ -9,11 +9,13 @@
 		"All Autocomplete",
 		"ApplySyntax",
 		"BracketHighlighter",
+		"Colorsublime",
 		"ERB Snippets",
 		"Git",
 		"GitGutter",
 		"JSX",
 		"Package Control",
-		"SCSS"
+		"SCSS",
+		"Theme - Soda"
 	]
 }
