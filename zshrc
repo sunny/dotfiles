@@ -31,3 +31,6 @@ export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bi
 # Load nvm
 export NVM_DIR="$HOME/.nvm"
 . "/usr/local/opt/nvm/nvm.sh"
+
+# Helps rmagick find imagemagick 6's pkgconfig on gem install
+export PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig
