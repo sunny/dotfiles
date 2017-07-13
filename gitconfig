@@ -70,6 +70,7 @@
   wip = "!git commit -m \"$(git branch-name) WIP\""
 
   # Pull rebase
+  p = pull --rebase
   pr = !git pull --rebase && git fetch --tags
 
   # Fetch all remotes, with tags and remove dead branches
