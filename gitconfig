@@ -84,3 +84,28 @@
 
 [branch "master"]
   mergeoptions = --no-edit
+
+# Color all the things
+
+[color]
+  ui = auto
+  diff = auto
+  interactive = auto
+  status = auto
+  branch = auto
+  pager = true
+
+[color "branch"]
+  current = cyan reverse
+  local = cyan
+  remote = magenta
+
+[color "diff"]
+  meta = yellow
+
+[color "status"]
+  header = cyan
+  added = yellow
+  changed = green
+  untracked = cyan
+  nobranch = red bold
