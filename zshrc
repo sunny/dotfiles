@@ -17,6 +17,9 @@ source "${ZSH}/oh-my-zsh.sh"
 # So instead of running `bin/rails` like the doc says, just run `rails`
 export PATH="./bin:${PATH}:/usr/local/sbin"
 
+# Add MySQL 5.6's mysql
+export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
