@@ -37,3 +37,5 @@ export NVM_DIR="$HOME/.nvm"
 
 # Helps rmagick find imagemagick 6's pkgconfig on gem install
 export PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig
+
+test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
