@@ -8,3 +8,6 @@ alias serve='ruby -run -e httpd . -p 8000'  # Or python -m SimpleHTTPServer :)
 
 # Ruby
 alias be="bundle exec"
+
+# Kill ports
+function killport() { lsof -t -i tcp:$1 | xargs kill }
