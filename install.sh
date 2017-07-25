@@ -56,8 +56,11 @@ fi
 mkdir -p $SUBL_PATH/Packages/User $SUBL_PATH/Installed\ Packages
 backup "$SUBL_PATH/Packages/User/Preferences.sublime-settings"
 curl -k https://sublime.wbond.net/Package%20Control.sublime-package > $SUBL_PATH/Installed\ Packages/Package\ Control.sublime-package
-ln -s $PWD/Preferences.sublime-settings $SUBL_PATH/Packages/User/Preferences.sublime-settings
-ln -s $PWD/Package\ Control.sublime-settings $SUBL_PATH/Packages/User/Package\ Control.sublime-settings
+ln -s $PWD/Preferences.sublime-settings $SUBL_PATH/Packages/User/
+ln -s $PWD/Package\ Control.sublime-settings $SUBL_PATH/Packages/User/
+if [[ `uname` =~ "darwin" ]]; then
+  ln -s $PWD/Default\ \(OSX\).sublime-keymap $SUBL_PATH/Packages/User/
+end
 
 zsh ~/.zshrc
 
