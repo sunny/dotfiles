@@ -4,7 +4,7 @@ ZSH=$HOME/.oh-my-zsh
 #   https://github.com/robbyrussell/oh-my-zsh/wiki/themes
 ZSH_THEME="robbyrussell"
 
-# Useful plugins for Rails development with Sublime Text
+# Oh My Zsh plugins
 plugins=(
   gitfast
   brew
