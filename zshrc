@@ -17,9 +17,6 @@ plugins=(
   history-substring-search
 )
 
-# Prevent Homebrew from reporting - https://github.com/Homebrew/brew/blob/master/share/doc/homebrew/Analytics.md
-export HOMEBREW_NO_ANALYTICS=1
-
 # Actually load Oh-My-Zsh
 source "${ZSH}/oh-my-zsh.sh"
 
