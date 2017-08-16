@@ -14,7 +14,6 @@
 		"node_modules",
 		"build"
 	],
-  "tab_completion": false,
 	"highlight_modified_tabs": true,
 	"hot_exit": false,
 	"ignored_packages":
@@ -26,6 +25,7 @@
 	[
 		80
 	],
+	"tab_completion": false,
 	"tab_size": 2,
 	"theme": "Soda Light 3.sublime-theme",
 	"translate_tabs_to_spaces": true,
