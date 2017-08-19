@@ -64,4 +64,4 @@ end
 
 zsh ~/.zshrc
 
-echo "👌  Carry on with git setup!"
+echo "👌  You can now run ./git_setup.sh"
