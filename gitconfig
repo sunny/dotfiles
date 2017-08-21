@@ -75,6 +75,7 @@
 
   # Fetch all remotes, with tags and remove dead branches
   f = fetch --all --tags --prune
+  clean-branches = !git branch | egrep -v '(master|\\*)' | xargs git branch -D
 
 [help]
   # Activate Git's autocorrect after a number of seconds ("Did you mean")
