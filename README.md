@@ -24,5 +24,5 @@ Configure git:
 
 ```sh
 cd ~/code/$GITHUB_USERNAME/dotfiles
-zsh git_install.sh
+zsh git_setup.sh
 ```
