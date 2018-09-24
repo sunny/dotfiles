@@ -2,17 +2,6 @@
   email = sunny@sunfox.org
   name = Sunny Ripert
 
-[color]
-  branch = auto
-  diff = auto
-  interactive = auto
-  status = auto
-  ui = auto
-
-[color "branch"]
-  current = green
-  remote = yellow
-
 [core]
   pager = less -FRSX
 
@@ -40,7 +29,6 @@
   st = status -sb
   br = branch
   ci = commit
-  fo = fetch origin
   d = !git --no-pager diff
   dt = difftool
   stat = !git --no-pager diff --stat
@@ -49,14 +37,12 @@
   sweep = !git branch --merged master | grep -v 'master$' | xargs git branch -d && git remote prune origin
 
   # http://www.jukie.net/bart/blog/pimping-out-git-log
-  lg = log --graph --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
-  l = log --pretty=format:'%Cred%h%Creset - %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
+  lg = log --graph --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
+  l = log --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
 
   # Serve local repo. http://coderwall.com/p/eybtga
   # Then other can access via `git clone git://#{YOUR_IP_ADDRESS}/
   serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
-
-  m = checkout master
 
   # Removes a file from the index
   unstage = reset HEAD --
@@ -66,22 +52,33 @@
   # other aliases)
   branch-name = "!git rev-parse --abbrev-ref HEAD"
 
+  bra = !~/bin/git-bra
+
   # Commit a temporary commit
   wip = "!git commit -m \"$(git branch-name) WIP\""
 
   # Pull rebase
   p = pull --rebase
   pr = !git pull --rebase && git fetch --tags
+  pron = !pronto run -c origin/master && git push origin
 
   # Fetch all remotes, with tags and remove dead branches
-  f = fetch --all --tags --prune
+  f = !~/bin/git-fetch-and-delete
   clean-branches = !git branch | egrep -v '(master|\\*)' | xargs git branch -D
+
+  default-upstream = "!git branch --set-upstream-to=origin/$(git branch-name)"
+
+  # Other tools
+  rspec = "!bundle exec rspec $(git status --short | grep '_spec.rb' | cut -b 3-)"
 
 [help]
   # Activate Git's autocorrect after a number of seconds ("Did you mean")
   autocorrect = 20
 
 [push]
+  default = current
+
+[pull]
 	default = current
 
 [branch "master"]
@@ -111,3 +108,21 @@
   changed = green
   untracked = cyan
   nobranch = red bold
+
+[ghi]
+  token = !security find-internet-password -a sunny -s github.com -l 'ghi token' -w
+
+# Add to your project's `.gitattributes` or `.git/info/attributes`:
+#
+#     db/schema.rb merge=railsschema
+#
+[merge "railsschema"]
+  name = Newer Rails schema version
+  driver = "ruby -e '\n\
+    system %(git), %(merge-file), %(--marker-size=%L), %(%A), %(%O), %(%B)\n\
+    b = File.read(%(%A))\n\
+    b.sub!(/^<+ .*\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n=+\\nActiveRecord::Schema\\.define.:version => (\\d+). do\\n>+ .*/) do\n\
+      %(ActiveRecord::Schema.define(:version => #{[$1, $2].max}) do)\n\
+    end\n\
+    File.open(%(%A), %(w)) {|f| f.write(b)}\n\
+    exit 1 if b.include?(%(<)*%L)'"

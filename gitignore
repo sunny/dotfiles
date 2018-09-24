@@ -3,3 +3,13 @@
 
 # Figaro gem
 config/application.yml
+
+# direnv
+.envrc
+
+# ack config
+.ackrc
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
