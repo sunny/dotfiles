@@ -23,6 +23,7 @@ source "${ZSH}/oh-my-zsh.sh"
 # Rails and Ruby uses the local `bin` folder to store binstubs.
 # So instead of running `bin/rails` like the doc says, just run `rails`
 export PATH="./bin:${PATH}:/usr/local/sbin"
+export PATH="~/bin:${PATH}"
 
 # Add MySQL 5.6's mysql
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
@@ -38,11 +39,13 @@ export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bi
 # Load z
 [[ -f "/usr/local/etc/profile.d/z.sh" ]] && source /usr/local/etc/profile.d/z.sh
 
-# Load nvm
-export NVM_DIR="$HOME/.nvm"
-. "/usr/local/opt/nvm/nvm.sh"
+# Load direnv
+eval "$(direnv hook zsh)"
 
 # Helps rmagick find imagemagick 6's pkgconfig on gem install
 export PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig
 
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
+
+export PATH="$HOME/.yarn/bin:$PATH"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
