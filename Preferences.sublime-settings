@@ -1,8 +1,33 @@
 {
+	"auto_complete_commit_on_tab": true,
 	"color_scheme": "Packages/Colorsublime - Themes/TricolorLight.tmTheme",
 	"detect_indentation": false,
-	"draw_white_space": true,
+	"draw_white_space": "all",
 	"ensure_newline_at_eof_on_save": true,
+	"file_exclude_patterns":
+	[
+		"*.pyc",
+		"*.pyo",
+		"*.exe",
+		"*.dll",
+		"*.obj",
+		"*.o",
+		"*.a",
+		"*.lib",
+		"*.so",
+		"*.dylib",
+		"*.ncb",
+		"*.sdf",
+		"*.suo",
+		"*.pdb",
+		"*.idb",
+		".DS_Store",
+		"*.class",
+		"*.psd",
+		"*.db",
+		"*.sublime-workspace",
+		"*.map"
+	],
 	"folder_exclude_patterns":
 	[
 		"tmp",
@@ -12,13 +37,22 @@
 		".bundle",
 		".sass-cache",
 		"node_modules",
-		"build"
+		"build",
+		"public/webpack_assets/builds"
 	],
+	"font_size": 17,
 	"highlight_modified_tabs": true,
 	"hot_exit": false,
 	"ignored_packages":
 	[
+		"BracketHighlighter",
+		"Git",
+		"GitGutter",
 		"Vintage"
+	],
+	"index_exclude_patterns":
+	[
+		"*.map"
 	],
 	"remember_open_files": false,
 	"rulers":
