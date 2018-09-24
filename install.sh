@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 backup() {
   target=$1
   if [ -e "$target" ]; then           # Does the config file already exist?
@@ -8,7 +10,6 @@ backup() {
   fi
 }
 
-#!/bin/zsh
 for name in *; do
   if [ ! -d "$name" ]; then
     target="$HOME/.$name"
@@ -22,10 +23,6 @@ for name in *; do
     fi
   fi
 done
-
-REGULAR="\\033[0;39m"
-YELLOW="\\033[1;33m"
-GREEN="\\033[1;32m"
 
 # zsh plugins
 CURRENT_DIR=`pwd`
@@ -62,6 +59,14 @@ if [[ `uname` =~ "darwin" ]]; then
   ln -s $PWD/Default\ \(OSX\).sublime-keymap $SUBL_PATH/Packages/User/
 end
 
+# iTerm
+ITERM_PROFILES_PATH="~/Library/Application Support/iTerm2/DynamicProfiles"
+mkdir -p "$ITERM_PROFILES_PATH"
+for name in iTerm2/*; do
+  ln -s $name $ITERM_PROFILES_PATH
+done
+
+# Source
 zsh ~/.zshrc
 
 echo "👌  You can now run ./git_setup.sh"

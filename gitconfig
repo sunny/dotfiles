@@ -12,7 +12,7 @@
   autocrlf = input
 
   # Global gitignore file
-  excludesfile = ~/.gitignore_global
+  excludesfile = ~/.gitignore
 
   # Helps using commands with unicode characters on OSX
   quotepath = false
