@@ -2,6 +2,9 @@
   email = sunny@sunfox.org
   name = Sunny Ripert
 
+[github]
+  user = sunny
+
 [core]
   pager = less -FRSX
 
