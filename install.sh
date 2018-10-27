@@ -59,13 +59,6 @@ if [[ `uname` =~ "darwin" ]]; then
   ln -s $PWD/Default\ \(OSX\).sublime-keymap $SUBL_PATH/Packages/User/
 end
 
-# iTerm
-ITERM_PROFILES_PATH="~/Library/Application Support/iTerm2/DynamicProfiles"
-mkdir -p "$ITERM_PROFILES_PATH"
-for name in iTerm2/*; do
-  ln -s $name $ITERM_PROFILES_PATH
-done
-
 # Source
 zsh ~/.zshrc
 
