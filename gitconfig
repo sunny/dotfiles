@@ -36,6 +36,9 @@
   br = branch
   ci = commit
 
+  # Commit with message
+  cm = commit -m
+
   # Short status
   st = status -sb
 
@@ -48,7 +51,7 @@
   # One-line log via http://www.jukie.net/bart/blog/pimping-out-git-log
   l = log --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
 
-  # One-linne log with a graph
+  # One-line log with a graph
   lg = log --graph --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
 
   # Serve local repo. http://coderwall.com/p/eybtga
