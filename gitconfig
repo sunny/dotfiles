@@ -5,6 +5,9 @@
 [github]
   user = sunny
 
+[ghi]
+  token = !security find-internet-password -a sunny -s github.com -l 'ghi token' -w
+
 [core]
   pager = less -FRSX
 
@@ -111,9 +114,6 @@
   changed = green
   untracked = cyan
   nobranch = red bold
-
-[ghi]
-  token = !security find-internet-password -a sunny -s github.com -l 'ghi token' -w
 
 # Add to your project's `.gitattributes` or `.git/info/attributes`:
 #
