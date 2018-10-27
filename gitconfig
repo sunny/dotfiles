@@ -31,23 +31,28 @@
   helper = osxkeychain
 
 [alias]
+  # Quicker access
   co = checkout
-  st = status -sb
   br = branch
   ci = commit
-  d = !git --no-pager diff
-  dt = difftool
+
+  # Short status
+  st = status -sb
+
+  # Diff as stats
   stat = !git --no-pager diff --stat
 
-  # Clean merged branches
-  sweep = !git branch --merged master | grep -v 'master$' | xargs git branch -d && git remote prune origin
+  # Add files by patches
+  ap = add -p
 
-  # http://www.jukie.net/bart/blog/pimping-out-git-log
-  lg = log --graph --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
+  # One-line log via http://www.jukie.net/bart/blog/pimping-out-git-log
   l = log --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
 
+  # One-linne log with a graph
+  lg = log --graph --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
+
   # Serve local repo. http://coderwall.com/p/eybtga
-  # Then other can access via `git clone git://#{YOUR_IP_ADDRESS}/
+  # Then others can access via `git clone git://#{YOUR_IP_ADDRESS}/
   serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
 
   # Removes a file from the index
@@ -58,27 +63,35 @@
   # other aliases)
   branch-name = "!git rev-parse --abbrev-ref HEAD"
 
+  # Sorted list of branches
   bra = !~/bin/git-bra
 
-  # Commit a temporary commit
+  # Commit with a temporary message
   wip = "!git commit -m \"$(git branch-name) WIP\""
 
   # Pull rebase
   p = pull --rebase
-  pr = !git pull --rebase && git fetch --tags
+
+  # Push if pronto does not detect any necessary fixes
   pu = !bundle exec pronto run -c origin/master --exit-code && git push origin
 
   # Fetch all remotes, with tags and remove dead branches
   f = !~/bin/git-fetch-and-delete
+
+  # Clean all branches except master and current branch (dangerous)
   clean-branches = !git branch | egrep -v '(master|\\*)' | xargs git branch -D
 
+  # Clean merged branches
+  sweep-branches = !git branch --merged master | grep -v 'master$' | xargs git branch -d && git remote prune origin
+
+  # Mark the default upstream as origin/
   default-upstream = "!git branch --set-upstream-to=origin/$(git branch-name)"
 
-  # Other tools
-  rspec = "!bundle exec rspec $(git status --short | grep '_spec.rb' | cut -b 3-)"
+  # Launch only touched rspec files
+  rspec = "!bin/rspec $(git status --short | grep '_spec.rb' | cut -b 3-)"
 
 [help]
-  # Activate Git's autocorrect after a number of seconds ("Did you mean")
+  # Activate Git's "Did you mean" after a number of seconds
   autocorrect = 20
 
 [push]
@@ -115,7 +128,7 @@
   untracked = cyan
   nobranch = red bold
 
-# Add to your project's `.gitattributes` or `.git/info/attributes`:
+# Add to your Rails project's `.gitattributes` or `.git/info/attributes`:
 #
 #     db/schema.rb merge=railsschema
 #
