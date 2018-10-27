@@ -60,7 +60,7 @@
   # Pull rebase
   p = pull --rebase
   pr = !git pull --rebase && git fetch --tags
-  pron = !pronto run -c origin/master && git push origin
+  pu = !bundle exec pronto run -c origin/master --exit-code && git push origin
 
   # Fetch all remotes, with tags and remove dead branches
   f = !~/bin/git-fetch-and-delete
