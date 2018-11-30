@@ -55,6 +55,20 @@ test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell
 # Nvm bash completion.
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
+# Nvm autoloading
+# Via https://medium.com/@kinduff/automatic-version-switch-for-nvm-ff9e00ae67f3
+autoload -U add-zsh-hook
+load-nvmrc() {
+  if [[ -f .nvmrc && -r .nvmrc ]]; then
+    nvm use
+  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+    echo "Reverting to nvm default version"
+    nvm use default
+  fi
+}
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
+
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "~/.aliases" ]] && source "~/.aliases"
 
