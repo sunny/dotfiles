@@ -1,5 +1,8 @@
 #!/bin/zsh
 
+set -e
+setopt nocasematch
+
 backup() {
   target=$1
   if [ -e "$target" ]; then           # Does the config file already exist?
@@ -34,14 +37,9 @@ if [ ! -d "$ZSH_PLUGINS_DIR/zsh-syntax-highlighting" ]; then
 fi
 cd "$CURRENT_DIR"
 
-setopt nocasematch
-if [[ ! `uname` =~ "darwin" ]]; then
-  git config --global core.editor "subl -n -w $@ >/dev/null 2>&1"
-  echo 'export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1"' >> zshrc
-else
-  git config --global core.editor "'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl' -n -w"
-  bundler_editor="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
-  echo "export BUNDLER_EDITOR=\"${bundler_editor}\"" >> zshrc
+# Local file
+if [[ ! -f "$HOME/.zshlocal" ]]; then
+  echo 'export BUNDLER_EDITOR="subl $@ >/dev/null 2>&1"' > "$HOME/.zshlocal"
 fi
 
 # Sublime Text
@@ -50,16 +48,27 @@ if [[ ! `uname` =~ "darwin" ]]; then
 else
   SUBL_PATH=~/Library/Application\ Support/Sublime\ Text\ 3
 fi
-mkdir -p $SUBL_PATH/Packages/User $SUBL_PATH/Installed\ Packages
+
+mkdir -p "$SUBL_PATH/Packages/User $SUBL_PATH/Installed Packages"
 backup "$SUBL_PATH/Packages/User/Preferences.sublime-settings"
-curl -k https://sublime.wbond.net/Package%20Control.sublime-package > $SUBL_PATH/Installed\ Packages/Package\ Control.sublime-package
-ln -s $PWD/Preferences.sublime-settings $SUBL_PATH/Packages/User/
-ln -s $PWD/Package\ Control.sublime-settings $SUBL_PATH/Packages/User/
-if [[ `uname` =~ "darwin" ]]; then
-  ln -s $PWD/Default\ \(OSX\).sublime-keymap $SUBL_PATH/Packages/User/
-end
 
-# Source
-zsh ~/.zshrc
+PACKAGE_CONTROL_URL="https://sublime.wbond.net/Package%20Control.sublime-package"
+PACKAGE_CONTROL_PATH="$SUBL_PATH/Installed Packages/Package Control.sublime-package"
 
-echo "👌  You can now run ./git_setup.sh"
+if [[ ! -f $PACKAGE_CONTROL_PATH ]]; then
+  curl -k $PACKAGE_CONTROL_URL > $PACKAGE_CONTROL_PATH
+fi
+
+if [[ ! -f "$SUBL_PATH/Packages/User/Preferences.sublime-settings" ]]; then
+  ln -s "$PWD/Preferences.sublime-settings" "$SUBL_PATH/Packages/User"
+fi
+
+if [[ ! -f "$SUBL_PATH/Packages/User/Package Control.sublime-settings" ]]; then
+  ln -s "$PWD/Package Control.sublime-settings" "$SUBL_PATH/Packages/User"
+fi
+
+# Commented out because of weird parsing bug
+#if [[ ! -f "$SUBL_PATH/Packages/User/Default (OSX).sublime-keymap" ]]; then
+#  ln -s "$PWD/Default (OSX).sublime-keymap" "$SUBL_PATH/Packages/User"
+#end
+

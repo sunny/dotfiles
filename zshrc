@@ -47,7 +47,9 @@ export PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig
 [[ -f "/usr/local/etc/profile.d/z.sh" ]] && source /usr/local/etc/profile.d/z.sh
 
 # Load direnv.
-eval "$(direnv hook zsh)"
+if hash direnv 2> /dev/null; then
+  eval "$(direnv hook zsh)"
+fi
 
 # iTerm2 shell integration.
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
@@ -66,11 +68,15 @@ load-nvmrc() {
     nvm use default
   fi
 }
-add-zsh-hook chpwd load-nvmrc
-load-nvmrc
+if hash nvm 2> /dev/null; then
+  add-zsh-hook chpwd load-nvmrc
+  load-nvmrc
+fi
 
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "~/.aliases" ]] && source "~/.aliases"
 
 # Load local configuration
 [ -f "~/.zshlocal" ] && source "~/.zshlocal"
+
+export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
