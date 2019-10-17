@@ -30,6 +30,7 @@ link .irbrc
 link .rspec
 link .tmux.conf
 link .zshrc
+link .hushlogin
 
 # Local file
 touch "$HOME/.zshlocal"
