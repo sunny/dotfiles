@@ -12,7 +12,6 @@ plugins=(
   rbenv
   last-working-dir
   common-aliases
-  sublime
   zsh-syntax-highlighting
   history-substring-search
 )
@@ -20,21 +19,21 @@ plugins=(
 # Actually load Oh-My-Zsh.
 source "$ZSH/oh-my-zsh.sh"
 
-# Projects using a local `bin` folder to store binstubs will let you
-# run `rails` instead of `bin/rails`.
-export PATH="./bin:$PATH"
-
 # Include sbins.
 export PATH="$PATH:/usr/local/sbin"
 
 # Add MySQL 5.6's mysql.
 export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 
-# Yarn's bin.s
+# Yarn's bins.
 export PATH="$HOME/.yarn/bin:$PATH"
 
-# Add your home bin directory.
+# Your home bin directory.
 export PATH="$HOME/bin:$PATH"
+
+# Projects using a local `bin` folder to store binstubs will let you
+# run `rails` instead of `bin/rails`.
+export PATH="./bin:$PATH"
 
 # Encoding stuff for the terminal.
 export LANG=en_US.UTF-8
@@ -42,6 +41,9 @@ export LC_ALL=en_US.UTF-8
 
 # Help rmagick find imagemagick 6's pkgconfig on gem install.
 export PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig
+
+# MySQL 5.6
+export DYLD_LIBRARY_PATH=/usr/local/opt/mysql@5.6/bin:$DYLD_LIBRARY_PATH
 
 # Load z.
 [[ -f "/usr/local/etc/profile.d/z.sh" ]] && source /usr/local/etc/profile.d/z.sh
@@ -74,9 +76,10 @@ if hash nvm 2> /dev/null; then
 fi
 
 # Store your own aliases in the ~/.aliases file and load the here.
-[[ -f "~/.aliases" ]] && source "~/.aliases"
+[[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
 
 # Load local configuration
-[ -f "~/.zshlocal" ] && source "~/.zshlocal"
+[ -f "$HOME/.zshlocal" ] && source "$HOME/.zshlocal"
 
-export BUNDLER_EDITOR="'/Applications/Sublime Text.app/Contents/SharedSupport/bin/subl'"
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
