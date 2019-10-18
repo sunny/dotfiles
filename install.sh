@@ -5,6 +5,7 @@ set -e
 link() {
   from=$PWD/links/$1
   to=$HOME/$1
+  mkdir -p `dirname $to`
   if [[ ! -f $to ]]; then
     echo $to
     ln -s $from $to
@@ -31,6 +32,7 @@ link .rspec
 link .tmux.conf
 link .zshrc
 link .hushlogin
+link bin/git-fetch-and-delete
 
 # Local file
 touch "$HOME/.zshlocal"
