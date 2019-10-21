@@ -39,6 +39,9 @@
   # Commit with message
   cm = commit -m
 
+  # Commit with amend
+  amend = commit --amend
+
   # Short status
   st = status -sb
 
