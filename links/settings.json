@@ -1,0 +1,16 @@
+{
+    "workbench.colorTheme": "Monokai Dimmed",
+    "editor.tabSize": 2,
+    "editor.rulers": [
+        80
+    ],
+    "editor.renderWhitespace": "boundary",
+    "editor.formatOnSave": true,
+    "files.trimTrailingWhitespace": true,
+    "files.trimFinalNewlines": true,
+    "explorer.confirmDelete": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "workbench.activityBar.visible": false,
+    "atomKeymap.promptV3Features": true,
+    "editor.formatOnPaste": true
+}
