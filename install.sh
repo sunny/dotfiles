@@ -9,7 +9,7 @@ link() {
 
   if [[ ! -f $to ]]; then
     echo $to
-    mkdir -p `dirname $to`
+    mkdir -p "`dirname $to`"
     ln -s $from $to
   fi
 }
@@ -35,7 +35,7 @@ link .tmux.conf
 link .zshrc
 link .hushlogin
 link bin/git-fetch-and-delete
-link settings.json "$HOME/Library/Application Support/Code/User/settings.json"
+link vscode-settings.json "$HOME/Library/Application Support/VSCodium/User/settings.json"
 
 # Local file
 touch "$HOME/.zshlocal"
