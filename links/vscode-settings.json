@@ -12,5 +12,7 @@
     "editor.multiCursorModifier": "ctrlCmd",
     "workbench.activityBar.visible": false,
     "atomKeymap.promptV3Features": true,
-    "editor.formatOnPaste": true
+    "editor.formatOnPaste": true,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false
 }

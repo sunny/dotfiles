@@ -35,7 +35,7 @@ link .tmux.conf
 link .zshrc
 link .hushlogin
 link bin/git-fetch-and-delete
-link vscode-settings.json "$HOME/Library/Application Support/VSCodium/User/settings.json"
+link vscode-settings.json "$HOME/Library/Application Support/Code/User/settings.json"
 
 # Local file
 touch "$HOME/.zshlocal"
