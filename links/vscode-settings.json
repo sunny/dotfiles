@@ -14,5 +14,7 @@
     "atomKeymap.promptV3Features": true,
     "editor.formatOnPaste": true,
     "telemetry.enableTelemetry": false,
-    "telemetry.enableCrashReporter": false
+    "telemetry.enableCrashReporter": false,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.acceptSuggestionOnEnter": "off"
 }
