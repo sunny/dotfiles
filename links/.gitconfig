@@ -96,6 +96,9 @@
   # Launch only touched rspec files
   rspec = "!bin/rspec $(git status --short | grep '_spec.rb' | cut -b 3-)"
 
+  # Spread the love
+  praise = blame
+
 [help]
   # Activate Git's "Did you mean" after a number of seconds
   autocorrect = 20
