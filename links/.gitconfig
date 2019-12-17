@@ -75,6 +75,9 @@
   # Commit with a temporary message
   wip = "!git commit -m \"$(git branch-name) WIP\""
 
+  # Commit with a random message
+  wtc = "!sh -c \"git commit -m '$(curl -s http://whatthecommit.com/index.txt)' $1\""
+
   # Pull rebase
   p = pull --rebase
 
