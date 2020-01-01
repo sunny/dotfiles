@@ -4,6 +4,9 @@ ZSH="$HOME/.oh-my-zsh"
 #   https://github.com/robbyrussell/oh-my-zsh/wiki/themes
 ZSH_THEME="fishy"
 
+# Skip the verification of insecure directories.
+ZSH_DISABLE_COMPFIX="true"
+
 # Oh My Zsh plugins
 plugins=(
   gitfast
