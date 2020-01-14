@@ -51,6 +51,9 @@ export PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig
 # MySQL 5.6
 export DYLD_LIBRARY_PATH=/usr/local/opt/mysql@5.6/bin:$DYLD_LIBRARY_PATH
 
+# https://github.com/ansible/ansible/issues/32499#issuecomment-341578864
+export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
+
 # Load z.
 [[ -f "/usr/local/etc/profile.d/z.sh" ]] && source /usr/local/etc/profile.d/z.sh
 
