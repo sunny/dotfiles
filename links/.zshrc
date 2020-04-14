@@ -26,7 +26,7 @@ source "$ZSH/oh-my-zsh.sh"
 export PATH="$PATH:/usr/local/sbin"
 
 # Add MySQL 5.6's mysql.
-export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
+#export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 
 # Yarn's bins.
 export PATH="$HOME/.yarn/bin:$PATH"
@@ -49,7 +49,11 @@ export EDITOR=vim
 export PKG_CONFIG_PATH=/usr/local/opt/imagemagick@6/lib/pkgconfig
 
 # MySQL 5.6
-export DYLD_LIBRARY_PATH=/usr/local/opt/mysql@5.6/bin:$DYLD_LIBRARY_PATH
+#export DYLD_LIBRARY_PATH=/usr/local/opt/mysql@5.6/bin:$DYLD_LIBRARY_PATH
+
+# On MySQL 5.6 gem installs you may also need:
+# export LDFLAGS="-L/usr/local/opt/mysql@5.6/lib"
+# export CPPFLAGS="-I/usr/local/opt/mysql@5.6/include"
 
 # https://github.com/ansible/ansible/issues/32499#issuecomment-341578864
 export OBJC_DISABLE_INITIALIZE_FORK_SAFETY=YES
