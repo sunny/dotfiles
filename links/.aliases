@@ -3,6 +3,9 @@ alias ip="curl ipinfo.io/ip"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 
+# Sublime
+alias stt=subl
+
 # Quickly serve the current directory as HTTP
 # Or python -m SimpleHTTPServer :)
 alias serve='ruby -run -e httpd . -p 8000'
