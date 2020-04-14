@@ -30,6 +30,7 @@ link .gemrc
 link .gitconfig
 link .gitignore
 link .irbrc
+link .psqlrc
 link .rspec
 link .tmux.conf
 link .zshrc
