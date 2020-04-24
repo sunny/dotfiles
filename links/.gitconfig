@@ -157,3 +157,6 @@
 
 [diff]
   noprefix = true
+
+[rebase]
+  autosquash = true
