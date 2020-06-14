@@ -1,8 +1,10 @@
-To install
-==========
+Sunny's dotfiles
+================
 
-Start by forking this repository. Clone it, then, in a terminal:
+## Install
+
+In a terminal call:
 
 ```sh
-zsh install.sh
+./install.sh
 ```
