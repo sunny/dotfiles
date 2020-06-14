@@ -110,10 +110,10 @@
   default = current
 
 [pull]
-	default = current
+  default = current
 
-[branch "master"]
-  mergeoptions = --no-edit
+[init]
+  templateDir = ~/.config/git/template/
 
 # Color all the things
 
