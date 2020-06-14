@@ -10,6 +10,7 @@ set -e
 
 newbranch="${1?}"
 remote="${2:-origin}"
+option="$3"
 
 git fetch "$remote" master
 git checkout -b "$newbranch" "${remote}/master" --no-track
@@ -24,5 +25,9 @@ for num in `gh pr list -B master -L999 | cut -f1`; do
   gh api -XPATCH "repos/:owner/:repo/pulls/${num}" -f base="$newbranch" >/dev/null
   echo -n .
 done
+
+if [ "$option" == "--delete" ]; then
+  git push origin --delete master
+fi
 
 printf '\nDone!\n'
