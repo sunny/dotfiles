@@ -1,14 +1,19 @@
 #!/bin/bash
-# https://gist.github.com/mislav/5ac69530acbe1b4ca909e272caabfdba
-#
-# Usage: gh-rename-master <newbranch> [<remote>]
+# Via https://gist.github.com/mislav/5ac69530acbe1b4ca909e272caabfdba
 #
 # Renames the "master" branch of the current repository both locally and on GitHub.
 #
-# dependencies: GitHub CLI v0.10
+# Usage: gh-rename-master <newbranch> [<remote> [--delete]]
+# Options:
+#   newbranch: branch name, defaults to "main"
+#   remote: remote name, defaults to "origin"
+#   --delete:  removes the remote branch
+#
+# Dependencies: GitHub CLI v0.10
+
 set -e
 
-newbranch="${1?}"
+newbranch="${1:-main}"
 remote="${2:-origin}"
 option="$3"
 
