@@ -49,7 +49,7 @@
   stat = !git --no-pager diff --stat
 
   # Add files by patches
-  ap = add -p
+  ap = !git add --intent-to-add . && git add --patch
 
   # One-line log via http://www.jukie.net/bart/blog/pimping-out-git-log
   l = log --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
