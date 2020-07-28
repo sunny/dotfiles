@@ -114,6 +114,7 @@
 
 [init]
   templateDir = ~/.config/git/template/
+  defaultBranch = main
 
 # Color all the things
 
