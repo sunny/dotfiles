@@ -25,7 +25,10 @@ source "$ZSH/oh-my-zsh.sh"
 # Include sbins.
 export PATH="$PATH:/usr/local/sbin"
 
-# Add MySQL 5.6's mysql.
+# Helm 2 bins.
+export PATH="/usr/local/opt/helm@2/bin:$PATH"
+
+# MySQL 5.6 bins.
 #export PATH="/usr/local/opt/mysql@5.6/bin:$PATH"
 
 # Yarn's bins.
