@@ -22,7 +22,12 @@
         "log/**": true,
         "node_modules/**": true
     },
-    "window.zoomLevel": 0,
+    "window.zoomLevel": 1,
     "editor.minimap.enabled": false,
-    "breadcrumbs.enabled": false
+    "breadcrumbs.enabled": false,
+    "tabnine.experimentalAutoImports": true,
+    "workbench.iconTheme": "vscode-unfancy-file-icons-codicons",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    }
 }
