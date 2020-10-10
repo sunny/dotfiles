@@ -51,6 +51,9 @@
   # Add files by patches
   ap = !git add --intent-to-add . && git add --patch
 
+  # Test then add files
+  specadd = !rspec $@ && git add
+
   # One-line log via http://www.jukie.net/bart/blog/pimping-out-git-log
   l = log --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
 
@@ -62,7 +65,13 @@
   serve = !git daemon --reuseaddr --verbose  --base-path=. --export-all ./.git
 
   # Removes a file from the index
-  unstage = reset HEAD --
+  unstage = reset --quiet HEAD --
+
+  # Stash
+  save = !git add -A && git stash
+
+  # Stash pop
+  pop = !git stash pop --quiet && git unstage && git st
 
   # Via https://gist.github.com/robmiller/6018582
   # Get the current branch name (not so useful in itself, but used in
@@ -77,6 +86,9 @@
 
   # Commit with a random message
   wtc = "!sh -c \"git commit -m '$(curl -s http://whatthecommit.com/index.txt)' $1\""
+
+  # Commit asa fixup to another commit
+  fixup = commit --fixup
 
   # Pull rebase
   p = pull --rebase
