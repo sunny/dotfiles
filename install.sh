@@ -55,6 +55,7 @@ link bin/git-fetch-and-delete
 link bin/gh-rename-master
 link .psql/.keep
 link vscode-settings.json "$HOME/Library/Application Support/Code/User/settings.json"
+link keybindings.json "$HOME/Library/Application Support/Code/User/keybindings.json"
 
 # Copies
 copy .config/git/template/HEAD
