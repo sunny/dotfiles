@@ -49,10 +49,7 @@
   stat = !git --no-pager diff --stat
 
   # Add files by patches
-  ap = !git add --intent-to-add . && git add --patch
-
-  # Test then add files
-  specadd = !rspec $@ && git add
+  ap = add --patch
 
   # One-line log via http://www.jukie.net/bart/blog/pimping-out-git-log
   l = log --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
@@ -87,7 +84,7 @@
   # Commit with a random message
   wtc = "!sh -c \"git commit -m '$(curl -s http://whatthecommit.com/index.txt)' $1\""
 
-  # Commit asa fixup to another commit
+  # Commit as a fixup to another commit
   fixup = commit --fixup
 
   # Pull rebase
@@ -111,8 +108,14 @@
   # Launch only touched rspec files
   rspec = "!bin/rspec $(git status --short | grep '_spec.rb' | cut -b 3-)"
 
+  # Test then add files
+  specadd = !rspec $@ && git add
+
   # Spread the love
   praise = blame
+
+  # Because I often end up doing "git git …" for some reason
+  git = !git $@
 
 [help]
   # Activate Git's "Did you mean" after a number of seconds
