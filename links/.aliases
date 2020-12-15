@@ -16,7 +16,7 @@ alias be="bundle exec"
 # Kill ports
 function killport() { lsof -t -i tcp:$1 | xargs kill }
 
-# Allow access to localtunnel by removing the alias
+# Allow access to localtunnel by removing the "lt" alias
 unalias lt
 
 # Kubernetes
