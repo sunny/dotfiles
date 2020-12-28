@@ -1,5 +1,4 @@
 {
-    "workbench.colorTheme": "Monokai Dimmed",
     "editor.tabSize": 2,
     "editor.rulers": [
         80
@@ -55,5 +54,6 @@
         "selection.background": "#5C6BC040",
         "statusBarItem.remoteBackground": "#5C6BC0"
     },
-    "materialTheme.accent": "Indigo"
+    "materialTheme.accent": "Indigo",
+    "workbench.colorTheme": "One Monokai"
 }
