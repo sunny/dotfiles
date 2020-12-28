@@ -19,5 +19,8 @@ function killport() { lsof -t -i tcp:$1 | xargs kill }
 # Allow access to localtunnel by removing the "lt" alias
 unalias lt
 
+# Number of processors
+alias nproc="sysctl -n hw.physicalcpu"
+
 # Kubernetes
 alias k=kubectl
