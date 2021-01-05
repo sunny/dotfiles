@@ -1,26 +1,30 @@
-# Get External IP / local IPs
-alias ip="curl ipinfo.io/ip"
-alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
-alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
-
-# Sublime
+# Sublime Text
 alias stt=subl
-
-# Quickly serve the current directory as HTTP
-# Or python -m SimpleHTTPServer :)
-alias serve='ruby -run -e httpd . -p 8000'
-
-# Ruby
-alias be="bundle exec"
-
-# Kill ports
-function killport() { lsof -t -i tcp:$1 | xargs kill }
-
-# Allow access to localtunnel by removing the "lt" alias
-unalias lt
-
-# Number of processors
-alias nproc="sysctl -n hw.physicalcpu"
 
 # Kubernetes
 alias k=kubectl
+
+# Bundler
+alias be="bundle exec"
+
+# Kill commands connected to a given port. For example:
+#     killport 3000
+function killport() { lsof -t -i tcp:$1 | xargs kill }
+
+# Get the current number of processors.
+alias nproc="sysctl -n hw.physicalcpu"
+
+# Get external IP
+alias ip="curl -s ipinfo.io/ip && echo"
+
+# Get local IPs
+alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+
+# Download a file to check how well the current connection works.
+alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
+
+# Serve the current directory through HTTP.
+alias serve='ruby -run -e httpd . -p 8000'
+
+# Allow the localtunnel program to be called by removing the "lt" alias.
+unalias lt
