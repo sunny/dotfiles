@@ -102,3 +102,9 @@ export NVM_DIR="$HOME/.nvm"
 
 # heroku autocomplete setup
 HEROKU_AC_ZSH_SETUP_PATH=/Users/sunny/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
+
+# ZSH Autosuggestions
+[ -f /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh ] && source /usr/local/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+
+# Command line Fuzzy Finder
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
