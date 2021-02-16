@@ -27,7 +27,7 @@
     "tabnine.experimentalAutoImports": true,
     "workbench.iconTheme": "vscode-unfancy-file-icons-codicons",
     "[javascript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "vscode.typescript-language-features"
     },
     "workbench.colorCustomizations": {
         "activityBarBadge.background": "#5C6BC0",
