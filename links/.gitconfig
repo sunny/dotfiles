@@ -43,7 +43,6 @@
 [alias]
   # Quicker access
   co = checkout
-  br = branch
   ci = commit
 
   # Commit with message
@@ -61,8 +60,8 @@
   # Add files by patches
   ap = add --patch
 
-  # One-line log via http://www.jukie.net/bart/blog/pimping-out-git-log
-  l = log --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
+  # Short one-line log via http://www.jukie.net/bart/blog/pimping-out-git-log
+  l = log -n 10 --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
 
   # One-line log with a graph
   lg = log --graph --pretty=format:'%C(yellow)%h%Creset %s %Cgreen(%cr) %C(bold blue)%an%Creset %C(yellow)%d%Creset'
@@ -86,7 +85,7 @@
   branch-name = "!git rev-parse --abbrev-ref HEAD"
 
   # Sorted list of branches
-  bra = !~/bin/git-bra
+	br = branch --sort=committerdate --format='%(committerdate:relative)\t%(color:cyan)%(if)%(HEAD)%(then)%(color:bold)%(end)%(refname:short) %(color:yellow no-bold)%(push:short)'
 
   # Commit with a temporary message
   wip = "!git commit -m \"$(git branch-name) WIP\""
