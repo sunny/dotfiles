@@ -8,7 +8,6 @@
     "files.trimFinalNewlines": true,
     "explorer.confirmDelete": false,
     "editor.multiCursorModifier": "ctrlCmd",
-    "workbench.activityBar.visible": false,
     "atomKeymap.promptV3Features": true,
     "editor.formatOnPaste": true,
     "telemetry.enableTelemetry": false,
@@ -22,10 +21,7 @@
         "node_modules/**": true
     },
     "window.zoomLevel": 1,
-    "editor.minimap.enabled": false,
-    "breadcrumbs.enabled": false,
     "tabnine.experimentalAutoImports": true,
-    "workbench.iconTheme": "vscode-unfancy-file-icons-codicons",
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
     },
@@ -55,5 +51,15 @@
         "statusBarItem.remoteBackground": "#5C6BC0"
     },
     "materialTheme.accent": "Indigo",
-    "workbench.colorTheme": "One Monokai"
+    "workbench.colorTheme": "One Monokai",
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": false,
+    "workbench.iconTheme": "vscode-unfancy-file-icons-codicons",
+    "workbench.activityBar.visible": false,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ]
 }
