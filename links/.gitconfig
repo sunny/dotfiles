@@ -9,7 +9,9 @@
   token = !security find-internet-password -a sunny -s github.com -l 'ghi token' -w
 
 [core]
-  pager = less -FRSX
+  # Custom pager, requires "git-delta"
+  # https://github.com/dandavison/delta#installation
+  pager = delta
 
   # Default editor. Use `subl -n -w` for Sublime Text.
   editor = vim
@@ -25,6 +27,14 @@
 
   # Helps using unicode characters in filenames on file systems like HFS+ on OSX
   precomposeunicode = true
+
+[delta]
+  plus-style = "syntax #012800"
+  minus-style = "syntax #340001"
+  syntax-theme = Monokai Extended
+
+[interactive]
+  diffFilter = delta --color-only
 
 [credential]
   # Use OSX's keychain to remember your passwords
