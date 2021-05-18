@@ -135,6 +135,7 @@
 
 [pull]
   default = current
+  rebase = true
 
 [init]
   templateDir = ~/.config/git/template/
