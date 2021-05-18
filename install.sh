@@ -54,6 +54,7 @@ link .hushlogin
 link bin/git-fetch-and-delete
 link bin/gh-rename-master
 link .psql/.keep
+link .oh-my-zsh/custom/themes/sunny.zsh-theme
 link vscode-settings.json "$HOME/Library/Application Support/Code/User/settings.json"
 link keybindings.json "$HOME/Library/Application Support/Code/User/keybindings.json"
 
