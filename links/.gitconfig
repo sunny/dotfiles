@@ -85,7 +85,7 @@
   branch-name = "!git rev-parse --abbrev-ref HEAD"
 
   # Sorted list of branches
-	br = branch --sort=committerdate --format='%(committerdate:relative)\t%(color:cyan)%(if)%(HEAD)%(then)%(color:bold)%(end)%(refname:short) %(color:yellow no-bold)%(push:short)'
+  br = branch --sort=committerdate --format='%(committerdate:relative)\t%(color:cyan)%(if)%(HEAD)%(then)%(color:bold)%(end)%(refname:short) %(color:yellow no-bold)%(push:short)'
 
   # Commit with a temporary message
   wip = "!git commit -m \"$(git branch-name) WIP\""
