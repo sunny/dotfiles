@@ -20,7 +20,6 @@
         "log/**": true,
         "node_modules/**": true
     },
-    "window.zoomLevel": 1,
     "tabnine.experimentalAutoImports": true,
     "[javascript]": {
         "editor.defaultFormatter": "vscode.typescript-language-features"
@@ -61,5 +60,6 @@
             "viewType": "jupyter.notebook.ipynb",
             "filenamePattern": "*.ipynb"
         }
-    ]
+    ],
+    "window.zoomLevel": 1
 }
