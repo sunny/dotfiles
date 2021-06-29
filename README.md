@@ -1,10 +1,11 @@
-Sunny's dotfiles
+Sunny’s dotfiles
 ================
 
 ## Install
 
-In a terminal call:
+Clone the dotfiles, for example in `~/code`. Then, in a terminal:
 
 ```sh
+cd dotfiles
 ./install.sh
 ```
