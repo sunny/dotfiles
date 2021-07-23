@@ -73,6 +73,9 @@
   # Removes a file from the index
   unstage = reset --quiet HEAD --
 
+  # Rewind last commit
+  uncommit = !git reset --soft HEAD~ && git reset HEAD .
+
   # Stash
   save = !git add -A && git stash
 
