@@ -117,8 +117,14 @@
   # Mark the default upstream as origin/
   default-upstream = "!git branch --set-upstream-to=origin/$(git branch-name)"
 
-  # Launch only touched rspec files
-  rspec = "!bin/rspec $(git status --short | grep '_spec.rb' | cut -b 3-)"
+  # Launch RSpec for only touched spec files
+  rspec = "!bin/rspec $(git status --short --untracked-files --no-renames | grep '_spec\\.rb$' | grep -Ev '^ ?D' | cut -b 3-)"
+
+  # Launch RuboCop for only touched ruby files
+  rubocop = "!bin/rubocop $(git status --short --untracked-files --no-renames | grep '\\.rb$' | grep -Ev '^ ?D' | grep -v schema.rb | cut -b 3-)"
+
+  # Launch erblint for only touched ERB files
+  erblint = "!bin/erblint $(git status --short --untracked-files --no-renames | grep '\\.erb$' | grep -Ev '^ ?D' | cut -b 3-)"
 
   # Test then add files
   specadd = !rspec $@ && git add
