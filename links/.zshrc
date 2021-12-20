@@ -17,6 +17,7 @@ plugins=(
   common-aliases
   zsh-syntax-highlighting
   history-substring-search
+  dotenv
 )
 
 # Actually load Oh-My-Zsh.
