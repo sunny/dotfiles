@@ -42,6 +42,7 @@ install_zsh_plugin
 
 # Links
 link .aliases
+link .digrc
 link .gemrc
 link .gitconfig
 link .gitignore
