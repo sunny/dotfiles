@@ -100,7 +100,7 @@
   fixup = commit --fixup
 
   # Pull rebase
-  p = pull --rebase
+  p = pull --rebase --autostash
 
   # Push if pronto does not detect any necessary fixes
   pu = !bundle exec pronto run -c origin/master --exit-code && git push origin
