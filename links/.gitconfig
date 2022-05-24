@@ -88,7 +88,7 @@
   branch-name = "!git rev-parse --abbrev-ref HEAD"
 
   # Sorted list of branches
-  br = branch --sort=committerdate --format='%(committerdate:relative)\t%(color:cyan)%(if)%(HEAD)%(then)%(color:bold)%(end)%(refname:short) %(color:yellow no-bold)%(push:short)'
+  br = branch --sort=committerdate --format='%(committerdate:relative)\t%(color:cyan)%(if)%(HEAD)%(then)%(color:bold)%(end)%(refname:short)'
 
   # Commit with a temporary message
   wip = "!git commit -m \"$(git branch-name) WIP\""
@@ -118,8 +118,8 @@
   default-upstream = "!git branch --set-upstream-to=origin/$(git branch-name)"
 
   # Launch RSpec for only touched spec files
-  rspec = "!bin/rspec $(git status --short --untracked-files --no-renames | grep '_spec\\.rb$' | grep -Ev '^ ?D' | cut -b 3-)"
-  rspec-dev = "!bin/rspec $(git diff --name-only origin/dev | grep '_spec\\.rb$' | xargs ls 2> /dev/null)"
+  rspec = "!bin/rspec $(git status --short --untracked-files --no-renames | cut -b 4- | grep '_spec\\.rb$' | xargs ls 2> /dev/null)"
+  rspec-dev = "!bin/rspec $(( git diff --name-only origin/dev ; git status --short --untracked-files --no-renames | cut -b 4-) | uniq | grep '_spec\\.rb$' | xargs ls 2> /dev/null)"
 
   # Launch RuboCop for only touched ruby files
   rubocop = "!bin/rubocop $(git status --short --untracked-files --no-renames | grep '\\.rb$' | grep -Ev '^ ?D' | grep -v schema.rb | cut -b 3-)"
