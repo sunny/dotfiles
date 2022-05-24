@@ -97,9 +97,9 @@
     "editor.tabSize": 4
   },
 
-  // "ruby.useBundler": true,
-  // "ruby.useLanguageServer": true,
-  // "ruby.intellisense": "rubyLocate",
+  "ruby.useBundler": true,
+  "ruby.useLanguageServer": false,
+  "ruby.intellisense": "rubyLocate",
   // "ruby.format": "rubocop",
   // "ruby.lint": {
   //   "rubocop": true
@@ -128,7 +128,9 @@
     "*": true,
     "yaml": true,
     "plaintext": true,
-    "markdown": true
+    "markdown": true,
+    "ruby": true,
+    "html": false
   },
   "telemetry.telemetryLevel": "off",
   "vsicons.dontShowNewVersionMessage": true,
@@ -137,6 +139,6 @@
   "workbench.colorTheme": "One Monokai",
   "editor.autoClosingBrackets": "never",
   "security.workspace.trust.untrustedFiles": "open",
-  "window.zoomLevel": 1,
   "files.saveConflictResolution": "overwriteFileOnDisk",
+  "window.zoomLevel": 1,
 }
