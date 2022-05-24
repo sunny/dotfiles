@@ -109,3 +109,6 @@ HEROKU_AC_ZSH_SETUP_PATH=/Users/sunny/Library/Caches/heroku/autocomplete/zsh_set
 
 # Command line Fuzzy Finder
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# InfluxDB
+export PATH="/usr/local/opt/influxdb@1/bin:$PATH"
