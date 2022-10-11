@@ -121,7 +121,11 @@
   ],
 
   "editor.inlineSuggest.enabled": true,
-  "editor.quickSuggestions": false,
+  "editor.quickSuggestions": {
+    "comments": "off",
+    "strings": "off",
+    "other": "off"
+  },
   "editor.suggest.showSnippets": false,
   "editor.suggest.snippetsPreventQuickSuggestions": false,
   "github.copilot.enable": {
@@ -130,7 +134,7 @@
     "plaintext": true,
     "markdown": true,
     "ruby": true,
-    "html": false
+    "html": true
   },
   "telemetry.telemetryLevel": "off",
   "vsicons.dontShowNewVersionMessage": true,
