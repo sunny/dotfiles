@@ -122,8 +122,8 @@
   rspec-dev = "!bin/rspec $(( git diff --name-only origin/dev ; git status --short --untracked-files --no-renames | cut -b 4-) | uniq | grep '_spec\\.rb$' | xargs ls 2> /dev/null)"
 
   # Launch RuboCop for only touched ruby files
-  rubocop = "!bin/rubocop $(git status --short --untracked-files --no-renames | grep '\\.rb$' | grep -Ev '^ ?D' | grep -v schema.rb | cut -b 3-)"
-  rubocop-dev = "!bin/rubocop $(git diff --name-only origin/dev | grep '\\.rb$' | grep -v schema.rb | xargs ls 2> /dev/null)"
+  rubocop = "!bin/rubocop --force-exclusion $(git status --short --untracked-files --no-renames | grep -Ev '^ ?D' | cut -b 3-)"
+  rubocop-dev = "!bin/rubocop --force-exclusion $(git diff --name-only origin/dev | xargs ls 2> /dev/null)"
 
   # Launch erblint for only touched ERB files
   erblint = "!bin/erblint $(git status --short --untracked-files --no-renames | grep '\\.erb$' | grep -Ev '^ ?D' | cut -b 3-)"
