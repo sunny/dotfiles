@@ -15,5 +15,13 @@
   {
     "key": "shift+cmd+d",
     "command": "editor.action.duplicateSelection"
+  },
+  {
+    "key": "ctrl+[Backquote]",
+    "command": "workbench.action.terminal.focus"
+  },
+  {
+    "key": "cmd+k l",
+    "command": "workbench.files.action.showActiveFileInExplorer"
   }
 ]

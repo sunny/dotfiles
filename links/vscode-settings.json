@@ -1,148 +1,115 @@
 {
-  "editor.tabSize": 2,
-  "editor.detectIndentation": false,
-  "editor.insertSpaces": true,
-  "editor.trimAutoWhitespace": true,
-  "editor.useTabStops": true,
-  "editor.formatOnPaste": true,
-  "editor.renderControlCharacters": true,
-  "editor.renderWhitespace": "boundary",
-  "editor.minimap.enabled": false,
-  "editor.multiCursorModifier": "ctrlCmd",
-  "editor.snippetSuggestions": "top",
-  "editor.rulers": [
-    80,
-    120
-  ],
-  "editor.scrollBeyondLastLine": true,
-  "editor.acceptSuggestionOnCommitCharacter": false,
-  "editor.acceptSuggestionOnEnter": "off",
-
-  "explorer.confirmDragAndDrop": false,
-  "explorer.confirmDelete": false,
-  "breadcrumbs.enabled": false,
-
-  "files.insertFinalNewline": true,
-  "files.trimFinalNewlines": true,
-  "files.trimTrailingWhitespace": true,
-  "files.exclude": {
-    "**/.git": true,
-    "**/.DS_Store": true,
-    "node_modules": true,
-    "tmp": true,
-    "log": true,
-    ".asset-cache": true,
-    ".bundle": true,
-    ".ipynb_checkpoints": true,
-    ".pytest_cache": true,
-    ".sass-cache": true,
-    ".svn": true,
-    "__pycache__": true,
-    "_site": true,
-    "build": true,
-    "coverage": true,
-    "dist": true,
-    "public/packs": true,
-    "**/.egg-info": true
-  },
-  "files.watcherExclude": {
-    "**/audits/**": true,
-    "**/coverage/**": true,
-    "**/log/**": true,
-    "**/node_modules/**": true,
-    "**/tmp/**": true,
-    "**/vendor/**": true
-  },
-  "workbench.startupEditor": "newUntitledFile",
-  "editor.bracketPairColorization.enabled": true,
-  "workbench.colorCustomizations": {
-    "editorBracketHighlight.foreground1": "#5caeef",
-    "editorBracketHighlight.foreground2": "#dfb976",
-    "editorBracketHighlight.foreground3": "#c172d9",
-    "editorBracketHighlight.foreground4": "#4fb1bc",
-    "editorBracketHighlight.foreground5": "#97c26c",
-    "editorBracketHighlight.foreground6": "#abb2c0",
-    "editorBracketHighlight.unexpectedBracket.foreground": "#db6165",
-    "activityBarBadge.background": "#5C6BC0",
-    "activityBar.activeBorder": "#5C6BC0",
-    "list.activeSelectionForeground": "#5C6BC0",
-    "list.inactiveSelectionForeground": "#5C6BC0",
-    "list.highlightForeground": "#5C6BC0",
-    "scrollbarSlider.activeBackground": "#5C6BC050",
-    "editorSuggestWidget.highlightForeground": "#5C6BC0",
-    "textLink.foreground": "#5C6BC0",
-    "progressBar.background": "#5C6BC0",
-    "pickerGroup.foreground": "#5C6BC0",
-    "tab.activeBorder": "#5C6BC0",
-    "notificationLink.foreground": "#5C6BC0",
-    "editorWidget.resizeBorder": "#5C6BC0",
-    "editorWidget.border": "#5C6BC0",
-    "settings.modifiedItemIndicator": "#5C6BC0",
-    "settings.headerForeground": "#5C6BC0",
-    "panelTitle.activeBorder": "#5C6BC0",
-    "breadcrumb.activeSelectionForeground": "#5C6BC0",
-    "menu.selectionForeground": "#5C6BC0",
-    "menubar.selectionForeground": "#5C6BC0",
-    "editor.findMatchBorder": "#5C6BC0",
-    "selection.background": "#5C6BC040",
-    "statusBarItem.remoteBackground": "#5C6BC0"
-  },
-
-  "workbench.activityBar.visible": false,
-  "workbench.editorAssociations": {
-    "*.ipynb": "jupyter.notebook.ipynb"
-  },
-
-  "[python]": {
-    "editor.tabSize": 4
-  },
-
-  "ruby.useBundler": true,
-  "ruby.useLanguageServer": false,
-  "ruby.intellisense": "rubyLocate",
-  // "ruby.format": "rubocop",
-  // "ruby.lint": {
-  //   "rubocop": true
-  // },
-
-  "railsRspecFileToggle.convertDefinition": [
-    {
-      "app_directory": "controllers",
-      "spec_directory": "controllers",
-      "app_suffix": "_controller",
-      "spec_suffix": "_controller"
+    "editor.tabSize": 2,
+    "editor.rulers": [
+        80
+    ],
+    "editor.renderWhitespace": "boundary",
+    "files.trimFinalNewlines": true,
+    "explorer.confirmDelete": false,
+    "editor.multiCursorModifier": "ctrlCmd",
+    "atomKeymap.promptV3Features": true,
+    "telemetry.enableTelemetry": false,
+    "telemetry.enableCrashReporter": false,
+    "editor.acceptSuggestionOnCommitCharacter": false,
+    "editor.acceptSuggestionOnEnter": "off",
+    "explorer.confirmDragAndDrop": false,
+    "files.insertFinalNewline": true,
+    "search.exclude": {
+        "log/**": true,
+        "node_modules/**": true
     },
-    {
-      "app_directory": "../lib",
-      "spec_directory": "lib",
-      "app_suffix": "",
-      "spec_suffix": ""
-    }
-  ],
-
-  "editor.inlineSuggest.enabled": true,
-  "editor.quickSuggestions": {
-    "comments": "off",
-    "strings": "off",
-    "other": "off"
-  },
-  "editor.suggest.showSnippets": false,
-  "editor.suggest.snippetsPreventQuickSuggestions": false,
-  "github.copilot.enable": {
-    "*": true,
-    "yaml": true,
-    "plaintext": true,
-    "markdown": true,
-    "ruby": true,
-    "html": true
-  },
-  "telemetry.telemetryLevel": "off",
-  "vsicons.dontShowNewVersionMessage": true,
-  "html.format.templating": true,
-  "html.autoClosingTags": false,
-  "workbench.colorTheme": "One Monokai",
-  "editor.autoClosingBrackets": "never",
-  "security.workspace.trust.untrustedFiles": "open",
-  "files.saveConflictResolution": "overwriteFileOnDisk",
-  "window.zoomLevel": 1,
+    "tabnine.experimentalAutoImports": true,
+    "[javascript]": {
+        "editor.defaultFormatter": "vscode.typescript-language-features"
+    },
+    "workbench.colorCustomizations": {
+        "activityBarBadge.background": "#5C6BC0",
+        "activityBar.activeBorder": "#5C6BC0",
+        "list.activeSelectionForeground": "#5C6BC0",
+        "list.inactiveSelectionForeground": "#5C6BC0",
+        "list.highlightForeground": "#5C6BC0",
+        "scrollbarSlider.activeBackground": "#5C6BC050",
+        "editorSuggestWidget.highlightForeground": "#5C6BC0",
+        "textLink.foreground": "#5C6BC0",
+        "progressBar.background": "#5C6BC0",
+        "pickerGroup.foreground": "#5C6BC0",
+        "tab.activeBorder": "#5C6BC0",
+        "notificationLink.foreground": "#5C6BC0",
+        "editorWidget.resizeBorder": "#5C6BC0",
+        "editorWidget.border": "#5C6BC0",
+        "settings.modifiedItemIndicator": "#5C6BC0",
+        "settings.headerForeground": "#5C6BC0",
+        "panelTitle.activeBorder": "#5C6BC0",
+        "breadcrumb.activeSelectionForeground": "#5C6BC0",
+        "menu.selectionForeground": "#5C6BC0",
+        "menubar.selectionForeground": "#5C6BC0",
+        "editor.findMatchBorder": "#5C6BC0",
+        "selection.background": "#5C6BC040",
+        "statusBarItem.remoteBackground": "#5C6BC0"
+    },
+    "materialTheme.accent": "Indigo",
+    "workbench.colorTheme": "One Monokai",
+    "editor.minimap.enabled": false,
+    "breadcrumbs.enabled": false,
+    "workbench.iconTheme": "vscode-unfancy-file-icons-codicons",
+    "ruby.useBundler": true,
+    "window.zoomLevel": 1,
+    "editor.unicodeHighlight.allowedCharacters": {
+        "➕": true,
+        "➖": true
+    },
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": true,
+        "markdown": true,
+        "scminput": false
+    },
+    "rubyLsp.rubyVersionManager": {
+        "identifier": "auto"
+    },
+    "workbench.activityBar.location": "hidden",
+    "rubyLsp.enabledFeatures": {
+        "codeActions": true,
+        "diagnostics": true,
+        "documentHighlights": true,
+        "documentLink": true,
+        "documentSymbols": true,
+        "foldingRanges": true,
+        "formatting": true,
+        "hover": true,
+        "inlayHint": false,
+        "onTypeFormatting": true,
+        "selectionRanges": true,
+        "semanticHighlighting": true,
+        "completion": true,
+        "codeLens": true,
+        "definition": true,
+        "workspaceSymbol": true,
+        "references": true
+    },
+    "github.copilot.editor.enableAutoCompletions": true,
+    "editor.fontFamily": "CommitMono, Menlo, Monaco, 'Courier New', monospace",
+    "railsRspecFileToggle.convertDefinition": [
+        {
+            "app_directory": "controllers",
+            "spec_directory": "controllers",
+            "app_suffix": "_controller",
+            "spec_suffix": "_controller"
+        }
+    ],
+    "editor.accessibilitySupport": "off",
+    "workbench.editorAssociations": {
+        "*.svg": "default"
+    },
+    "[erb]": {
+        "editor.defaultFormatter": "aliariff.vscode-erb-beautify"
+    },
+    "git.blame.editorDecoration.enabled": true,
+    "files.trimTrailingWhitespace": true,
+    "languageServerHerb.linter.fixOnSave": false,
+    "erb.erb-lint.onSave": false,
+    "languageServerHerb.linter.enabled": false,
+    "vscode-erb-beautify.ignoreFormatFilePatterns": [
+        ".html.erb"
+    ]
 }
