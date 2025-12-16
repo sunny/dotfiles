@@ -1,0 +1,30 @@
+#!/bin/bash
+# Pre-rebase hook to prevent rebasing a branch onto itself
+# To run, add the following to ~/.gitconfig
+# [core]
+# hooksPath = ~/.git-hooks
+
+upstream="$1"
+current_branch=$(git symbolic-ref --short HEAD 2>/dev/null)
+
+# Check for detached HEAD state
+if [ -z "$current_branch" ]; then
+    echo "⚠️  Warning: You are in detached HEAD state"
+    echo "   Rebasing in detached HEAD state may make commits harder to find later"
+    echo "   Consider creating a branch first with: git checkout -b <branch-name>"
+    # Allow the rebase to proceed with a warning
+    exit 0
+fi
+
+# Strip refs/heads/ prefix if present in upstream
+upstream_clean="${upstream#refs/heads/}"
+
+# Check if trying to rebase onto the same branch
+if [ "$current_branch" = "$upstream_clean" ]; then
+    echo "❌ Error: Cannot rebase branch '$current_branch' onto itself"
+    echo "   Current branch: $current_branch"
+    echo "   Rebase target: $upstream_clean"
+    exit 1
+fi
+
+exit 0

@@ -46,6 +46,7 @@ link .digrc
 link .gemrc
 link .gitconfig
 link .gitignore
+link .githooks/pre-rebase
 link .irbrc
 link .psqlrc
 link .rspec

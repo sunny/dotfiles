@@ -28,6 +28,8 @@
   # Helps using unicode characters in filenames on file systems like HFS+ on OSX
   precomposeunicode = true
 
+  hooksPath = ~/.githooks
+
 [delta]
   plus-style = "syntax #012800"
   minus-style = "syntax #340001"
