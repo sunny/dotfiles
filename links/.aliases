@@ -10,6 +10,7 @@ alias be="bundle exec"
 # Kill commands connected to a given port. For example:
 #     killport 3000
 function killport() { lsof -t -i tcp:$1 | xargs kill }
+function killport9() { lsof -t -i tcp:$1 | xargs kill -9 }
 
 # Get the current number of processors.
 alias nproc="sysctl -n hw.physicalcpu"
