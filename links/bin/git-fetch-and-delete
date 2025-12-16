@@ -1,7 +1,9 @@
 #!/usr/bin/env ruby
 
+remote = ARGV.first || "--all"
+
 # TODO: Use popen3 to catch the output of the command while it is running.
-fetch_prune = `git fetch --all --tags --prune 2>&1`
+fetch_prune = `git fetch --tags --prune #{remote} 2>&1`
 fetch_prune.lines.each do |line|
   if (branch = /^ - \[deleted\].*?\/(.*)$/.match(line)&.captures&.first)
     next unless system("git rev-parse --verify #{branch} > /dev/null 2>&1")
