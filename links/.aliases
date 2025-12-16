@@ -1,11 +1,11 @@
 # Sublime Text
-alias stt=subl
+#alias stt=subl
 
 # Kubernetes
 alias k=kubectl
 
 # Bundler
-alias be="bundle exec"
+#alias be="bundle exec"
 
 # Kill commands connected to a given port. For example:
 #     killport 3000
@@ -22,10 +22,10 @@ alias ip="curl -s ipinfo.io/ip && echo"
 alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 
 # Download a file to check how well the current connection works.
-alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
+# alias speedtest="wget -O /dev/null http://speedtest.wdc01.softlayer.com/downloads/test10.zip"
 
 # Serve the current directory through HTTP.
 alias serve='ruby -run -e httpd . -p 8000'
 
 # Allow the localtunnel program to be called by removing the "lt" alias.
-unalias lt
+# unalias lt
