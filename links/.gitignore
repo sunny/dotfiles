@@ -13,3 +13,6 @@ config/application.yml
 # Sublime Text
 *.sublime-project
 *.sublime-workspace
+
+# Ruby Butler
+.rb

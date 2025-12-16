@@ -45,7 +45,7 @@
 [alias]
   # Quicker access
   co = checkout
-  ci = commit
+  sw = switch
 
   # Commit with message
   cm = commit -m
@@ -128,7 +128,7 @@
   rubocop-dev = "!bin/rubocop --force-exclusion $(git diff --name-only origin/dev | xargs ls 2> /dev/null)"
 
   # Launch erblint for only touched ERB files
-  erblint = "!bin/erblint $(git status --short --untracked-files --no-renames | grep '\\.erb$' | grep -Ev '^ ?D' | cut -b 3-)"
+  erb-lint = "!bin/erb_lint $(git status --short --untracked-files --no-renames | grep '\\.erb$' | grep -Ev '^ ?D' | cut -b 3-)"
 
   # Test then add files
   specadd = !rspec $@ && git add
@@ -154,6 +154,10 @@
 [init]
   templateDir = ~/.config/git/template/
   defaultBranch = main
+
+[pager]
+  # When calling `git br`, send the pager to the bottom.
+  branch = "less +G"
 
 # Color all the things
 
@@ -197,6 +201,14 @@
 
 [diff]
   noprefix = true
+  algorithm = histogram
+  colorMoved = default
 
 [rebase]
   autosquash = true
+
+[merge]
+  conflictStyle = zdiff3
+
+[rerere]
+  enabled = true
