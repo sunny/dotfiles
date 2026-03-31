@@ -98,24 +98,38 @@ fi
 # iTerm2 shell integration.
 test -e "${HOME}/.iterm2_shell_integration.zsh" && source "${HOME}/.iterm2_shell_integration.zsh"
 
+# Nvm
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
 # Nvm bash completion.
 [ -s "$NVM_DIR/bash_completion" ] && source "$NVM_DIR/bash_completion"
 
 # Nvm autoloading
-# Via https://medium.com/@kinduff/automatic-version-switch-for-nvm-ff9e00ae67f3
+# Via https://github.com/nvm-sh/nvm#zsh
 autoload -U add-zsh-hook
+
 load-nvmrc() {
-  if [[ -f .nvmrc && -r .nvmrc ]]; then
-    nvm use
-  elif [[ $(nvm version) != $(nvm version default)  ]]; then
+  local nvmrc_path
+  nvmrc_path="$(nvm_find_nvmrc)"
+
+  if [ -n "$nvmrc_path" ]; then
+    local nvmrc_node_version
+    nvmrc_node_version=$(nvm version "$(cat "${nvmrc_path}")")
+
+    if [ "$nvmrc_node_version" = "N/A" ]; then
+      nvm install
+    elif [ "$nvmrc_node_version" != "$(nvm version)" ]; then
+      nvm use
+    fi
+  elif [ -n "$(PWD=$OLDPWD nvm_find_nvmrc)" ] && [ "$(nvm version)" != "$(nvm version default)" ]; then
     echo "Reverting to nvm default version"
     nvm use default
   fi
 }
-if hash nvm 2> /dev/null; then
-  add-zsh-hook chpwd load-nvmrc
-  load-nvmrc
-fi
+
+add-zsh-hook chpwd load-nvmrc
+load-nvmrc
 
 # Store your own aliases in the ~/.aliases file and load the here.
 [[ -f "$HOME/.aliases" ]] && source "$HOME/.aliases"
@@ -123,8 +137,6 @@ fi
 # Load local configuration
 [ -f "$HOME/.zshlocal" ] && source "$HOME/.zshlocal"
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 
 # heroku autocomplete setup
 #HEROKU_AC_ZSH_SETUP_PATH=/Users/sunny/Library/Caches/heroku/autocomplete/zsh_setup && test -f $HEROKU_AC_ZSH_SETUP_PATH && source $HEROKU_AC_ZSH_SETUP_PATH;
