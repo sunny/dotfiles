@@ -111,5 +111,6 @@
     "languageServerHerb.linter.enabled": false,
     "vscode-erb-beautify.ignoreFormatFilePatterns": [
         ".html.erb"
-    ]
+    ],
+    "chat.disableAIFeatures": true
 }
