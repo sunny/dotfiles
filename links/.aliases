@@ -1,5 +1,6 @@
-# Sublime Text
-#alias stt=subl
+# Git
+alias gp="git push"
+alias gpc="git push && gh pr create --fill"
 
 # Kubernetes
 alias k=kubectl
